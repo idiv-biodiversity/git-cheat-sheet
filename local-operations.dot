@@ -1,0 +1,22 @@
+digraph {
+    node [shape = "box", style = "filled,rounded"]
+
+    # untracked[label = "untracked\n(files git doesn't know)"]
+    workdir[label = "working directory\n(changes not staged for commit)", color = lightskyblue]
+    stage[label = "staging area\n(changes to be committed)", color = orchid]
+    repo[label = "repository\n(tracked content)", color = limegreen]
+    # discard[label = "discard\n(remove file)"]
+
+    # untracked -> stage [label = "git add"]
+    # stage -> untracked [label = "git unstage"]
+
+    workdir -> stage [label = "git stage file"]
+    stage -> workdir [label = "git unstage file"]
+
+    # workdir -> discard [label = "git checkout"]
+    # untracked -> discard [label = "rm"]
+
+    stage -> repo [label = "git commit"]
+
+    # { rank = same; untracked workdir }
+}

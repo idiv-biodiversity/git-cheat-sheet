@@ -1,0 +1,30 @@
+digraph {
+    node [shape = "box", style = "filled, rounded"]
+
+    subgraph clustermaster {
+        label = "master"
+
+        node [color = limegreen]
+
+        A[label = "A"]
+        B[label = "B"]
+        C[label = "C"]
+        M[label = "M"]
+
+        M -> C -> B -> A
+    }
+
+    subgraph clusterfeature {
+        label = "topic/feature"
+
+        node [color = orchid]
+
+        F1[label = "F1"]
+        F2[label = "F2"]
+
+        F2 -> F1
+    }
+
+    F1 -> A
+    M -> F2 [constraint = false]
+}

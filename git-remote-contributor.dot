@@ -1,0 +1,32 @@
+digraph {
+    node [shape = "box", style = "filled, rounded"]
+
+    subgraph clusterorigin {
+        label = "origin"
+
+        node [color = orchid]
+
+        omaster[label = "master"]
+    }
+
+    subgraph clusterlocal {
+        label = "local"
+
+        node [color = orchid]
+
+        master[label = "master"]
+    }
+
+    subgraph clusterupstream {
+        label = "upstream"
+
+        node [color = limegreen]
+
+        umaster[label = "master"]
+    }
+
+    omaster -> master [label = "git pull"]
+    master -> omaster [label = "git push", constraint = false]
+    umaster -> master [label = "git pull upstream master", constraint = false]
+    omaster -> umaster [label = "pull request (GitHub)\nmerge request (GitLab)", constraint = false]
+}

@@ -1,0 +1,28 @@
+digraph {
+    node [shape = "box", style = "filled, rounded"]
+
+    subgraph clustermaster {
+        label = "master"
+
+        node [color = limegreen]
+
+        master3[label = "ebe0262"]
+        master2[label = "03f4f8d"]
+        master1[label = "62a0ee9"]
+
+        master3 -> master2 -> master1
+    }
+
+    subgraph clusterfeature {
+        label = "topic/feature"
+
+        node [color = orchid]
+
+        feature2[label = "8b29f74"]
+        feature1[label = "7f295dd"]
+
+        feature2 -> feature1
+    }
+
+    feature1 -> master2
+}

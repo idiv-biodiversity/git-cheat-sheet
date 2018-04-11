@@ -1,0 +1,40 @@
+digraph {
+    node [shape = "box", style = "filled, rounded"]
+
+    subgraph clusterorigin {
+        label = "origin"
+
+        node [color = orchid]
+
+        omaster[label = "master"]
+    }
+
+    subgraph clusterlocal {
+        label = "local"
+
+        node [color = orchid]
+
+        master[label = "master"]
+    }
+
+    subgraph clusteralice {
+        label = "alice"
+
+        node [color = limegreen]
+
+        amaster[label = "master"]
+    }
+
+    subgraph clusterbob {
+        label = "bob"
+
+        node [color = lightskyblue]
+
+        bmaster[label = "master"]
+    }
+
+    omaster -> master [label = "git pull"]
+    master -> omaster [label = "git push", constraint = false]
+    amaster -> master [label = "git pull alice", constraint = false]
+    bmaster -> master [label = "git pull bob", constraint = false]
+}

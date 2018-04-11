@@ -1,0 +1,3 @@
+[submodule "pandoc-cheat-sheet"]
+	path = pandoc-cheat-sheet
+	url = https://github.com/idiv-biodiversity/pandoc-cheat-sheet.git
