@@ -122,18 +122,20 @@
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">git</span> config --global user.name  <span class="st">&#39;Jane Doe&#39;</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="fu">git</span> config --global user.email <span class="st">&#39;jane.doe@feminism.org&#39;</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># configure aliases</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> config --global alias.unstage <span class="st">&#39;reset HEAD --&#39;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="fu">git</span> config --global alias.lol <span class="st">&#39;log --graph --decorate --oneline --all&#39;</span></a></code></pre></div>
-<p>More about aliases <a href="https://idiv-biodiversity.github.io/git-knowledge-base/aliases.html">here</a>.</p>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># show colors</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> config --global color.ui auto</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># configure aliases</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="fu">git</span> config --global alias.unstage <span class="st">&#39;reset HEAD --&#39;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="fu">git</span> config --global alias.lol <span class="st">&#39;log --graph --decorate --oneline --all&#39;</span></a></code></pre></div>
 <h1 id="basics">basics</h1>
-<h2 id="local-repository">local repository</h2>
+<h2 id="create-repositories">create repositories</h2>
 <p>These are the two ways how to create a local git repository you can work with:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># create empty repository</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">git</span> init project-name</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># create local copy of existing repository</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">git</span> clone https://github.com/idiv-biodiversity/project-name.git</a></code></pre></div>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">git</span> clone https://github.com/user/project-name.git</a></code></pre></div>
 <p>Then you can start editing files.</p>
 <h2 id="status">status</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># show what to do with files in working directory</span></a>
@@ -151,7 +153,6 @@
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># remove a file</span></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="fu">git</span> rm file</a></code></pre></div>
 <h2 id="show-changes">show changes</h2>
-<p>When we talk about git, we just say <strong>diff</strong> when we mean: <strong>set of changes from one version to another one</strong>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># show changes from last commit and staging area to current working copy</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">git</span> diff</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"></a>
@@ -159,7 +160,6 @@
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># (i.e. changes from last commit to staging area)</span></a>
 <a class="sourceLine" id="cb7-6" data-line-number="6"><span class="fu">git</span> diff --staged</a></code></pre></div>
 <h2 id="commit-changes">commit changes</h2>
-<p>When we talk about git, we just say <strong>commit</strong> when we mean: <strong>a set of changes that have been included in the history of a repository</strong>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># opens editor for you to edit commit message</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="fu">git</span> commit</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
@@ -186,11 +186,11 @@
 <a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co"># show all branches (remotes, too)</span></a>
 <a class="sourceLine" id="cb10-5" data-line-number="5"><span class="fu">git</span> branch --all</a>
 <a class="sourceLine" id="cb10-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co"># create a new branch and switch to it</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="fu">git</span> checkout -b topic/feature</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co"># create a new branch</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="fu">git</span> branch topic/feature</a>
 <a class="sourceLine" id="cb10-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co"># switch to an existing branch</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="fu">git</span> checkout master</a></code></pre></div>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co"># switch to a branch</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="fu">git</span> checkout topic/feature</a></code></pre></div>
 <p>More about branch naming conventions <a href="https://idiv-biodiversity.github.io/git-knowledge-base/branch-naming-conventions.html">here</a>.</p>
 <h2 id="merging">merging</h2>
 <p>To resolve a branch, i.e. to include its changes in the <strong>master</strong> branch, you need to <strong>merge</strong> it:</p>
