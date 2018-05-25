@@ -23,16 +23,17 @@ git help command
 git config --global user.name  'Jane Doe'
 git config --global user.email 'jane.doe@feminism.org'
 
+# show colors
+git config --global color.ui auto
+
 # configure aliases
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.lol 'log --graph --decorate --oneline --all'
 ```
 
-More about aliases [here][aliases].
-
 # basics
 
-## local repository
+## create repositories
 
 These are the two ways how to create a local git repository you can work with:
 
@@ -41,7 +42,7 @@ These are the two ways how to create a local git repository you can work with:
 git init project-name
 
 # create local copy of existing repository
-git clone https://github.com/idiv-biodiversity/project-name.git
+git clone https://github.com/user/project-name.git
 ```
 
 Then you can start editing files.
@@ -74,8 +75,6 @@ git rm file
 
 ## show changes
 
-When we talk about git, we just say **diff** when we mean: **set of changes from one version to another one**.
-
 ```bash
 # show changes from last commit and staging area to current working copy
 git diff
@@ -86,8 +85,6 @@ git diff --staged
 ```
 
 ## commit changes
-
-When we talk about git, we just say **commit** when we mean: **a set of changes that have been included in the history of a repository**.
 
 ```bash
 # opens editor for you to edit commit message
@@ -129,11 +126,11 @@ git branch
 # show all branches (remotes, too)
 git branch --all
 
-# create a new branch and switch to it
-git checkout -b topic/feature
+# create a new branch
+git branch topic/feature
 
-# switch to an existing branch
-git checkout master
+# switch to a branch
+git checkout topic/feature
 ```
 
 More about branch naming conventions [here][branch naming].
@@ -194,7 +191,6 @@ The remotes of contributors are usually named by their owners.
 ![](git-remote-maintainer.svg)
 
 
-[aliases]: https://idiv-biodiversity.github.io/git-knowledge-base/aliases.html
 [commit messages]: https://idiv-biodiversity.github.io/git-knowledge-base/commit-message-conventions.html
 [branch naming]: https://idiv-biodiversity.github.io/git-knowledge-base/branch-naming-conventions.html
 [SHA-1]: https://en.wikipedia.org/wiki/SHA-1
