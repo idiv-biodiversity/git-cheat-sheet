@@ -13,7 +13,7 @@ digraph {
     workdir -> stage [label = "git stage file"]
     stage -> workdir [label = "git unstage file"]
 
-    # workdir -> discard [label = "git checkout"]
+    # workdir -> discard [label = "git restore"]
     # untracked -> discard [label = "rm"]
 
     stage -> repo [label = "git commit"]

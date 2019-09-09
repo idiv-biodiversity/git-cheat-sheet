@@ -64,7 +64,7 @@ There are some other commands that let you work with the files in your **working
 
 ```bash
 # discard changes to a file
-git checkout file
+git restore file
 
 # rename a file
 git mv source destination
@@ -130,7 +130,7 @@ git branch --all
 git branch topic/feature
 
 # switch to a branch
-git checkout topic/feature
+git switch topic/feature
 ```
 
 More about branch naming conventions [here][branch naming].
@@ -140,7 +140,7 @@ More about branch naming conventions [here][branch naming].
 To resolve a branch, i.e. to include its changes in the **master** branch, you need to **merge** it:
 
 ```bash
-git checkout master
+git switch master
 git merge topic/feature
 ```
 
