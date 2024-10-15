@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <meta name="author" content="Christian Krause" />
-  <meta name="keywords" content="git, command line, cli, cheat, sheet, cheat sheet" />
+  <meta name="keywords" content="git, command
+line, cli, cheat, sheet, cheat sheet" />
 
   <style type="text/css">
     .cheat-sheet {
@@ -39,28 +40,28 @@
       margin-right: auto;
     }
 
-    a.sourceLine { display: inline-block; line-height: 1.25; }
-    a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-    a.sourceLine:empty { height: 1.2em; position: absolute; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
-    code.sourceCode { white-space: pre; position: relative; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
     div.sourceCode { margin: 1em 0; }
     pre.sourceCode { margin: 0; }
     @media screen {
     div.sourceCode { overflow: auto; }
     }
     @media print {
-    code.sourceCode { white-space: pre-wrap; }
-    a.sourceLine { text-indent: -1em; padding-left: 1em; }
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
-    pre.numberSource a.sourceLine
-      { position: relative; }
-    pre.numberSource a.sourceLine:empty
-      { position: absolute; }
-    pre.numberSource a.sourceLine::before
-      { content: attr(data-line-number);
-        position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-        border: none; pointer-events: all;
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
         -webkit-touch-callout: none; -webkit-user-select: none;
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
@@ -69,15 +70,15 @@
       }
     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      {  }
+      {   }
     @media screen {
-    a.sourceLine::before { text-decoration: underline; }
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
     code span.al { color: #ff0000; font-weight: bold; } /* Alert */
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -90,7 +91,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -111,112 +112,158 @@
   <div class="container-fluid">
     <div class="cheat-sheet">
 <h1 id="git-beginner-cheat-sheet">git beginner cheat sheet</h1>
-<p>This is an introductory <strong>git cheat sheet</strong> targeting <strong>beginner-level git users</strong>. With the commands shown here, <strong>you will be able to start tracking the history of your projects</strong>. There is certainly a lot more you can do with git (and a lot cleaner), but the important thing is to <strong>get you started</strong> and to provide a <strong>reference for infrequent git users</strong>. Once you are comfortable with these basic commands (and you don’t need this cheat sheet to remember them), you are advised to use the <strong>cheat sheet for advanced users</strong> (not finished yet).</p>
+<p>This is an introductory <strong>git cheat sheet</strong> targeting
+<strong>beginner-level git users</strong>. With the commands shown here,
+<strong>you will be able to start tracking the history of your
+projects</strong>. There is certainly a lot more you can do with git
+(and a lot cleaner), but the important thing is to <strong>get you
+started</strong> and to provide a <strong>reference for infrequent git
+users</strong>. Once you are comfortable with these basic commands (and
+you don’t need this cheat sheet to remember them), you are advised to
+use the <strong>cheat sheet for advanced users</strong> (not finished
+yet).</p>
 <h2 id="command-line-usage">command line usage</h2>
-<p>The command line <strong>git</strong> application uses so-called <strong>commands</strong>. The command line syntax is always:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">git</span> command [arguments]</a></code></pre></div>
-<p>Each <strong>command</strong> has an extensive <strong>manual</strong> with lots of <strong>examples</strong>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> help command</a></code></pre></div>
+<p>The command line <strong>git</strong> application uses so-called
+<strong>commands</strong>. The command line syntax is always:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> command <span class="pp">[</span><span class="ss">arguments</span><span class="pp">]</span></span></code></pre></div>
+<p>Each <strong>command</strong> has an extensive
+<strong>manual</strong> with lots of <strong>examples</strong>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> help command</span></code></pre></div>
 <h2 id="setup">setup</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># configure your identity</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">git</span> config --global user.name  <span class="st">&#39;Jane Doe&#39;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="fu">git</span> config --global user.email <span class="st">&#39;jane.doe@feminism.org&#39;</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># show colors</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="fu">git</span> config --global color.ui auto</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># configure aliases</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="fu">git</span> config --global alias.unstage <span class="st">&#39;reset HEAD --&#39;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="fu">git</span> config --global alias.lol <span class="st">&#39;log --graph --decorate --oneline --all&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># configure your identity</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name  <span class="st">&#39;Jane Doe&#39;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&#39;jane.doe@feminism.org&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># show colors</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> color.ui auto</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># configure aliases</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.unstage <span class="st">&#39;reset HEAD --&#39;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> alias.lol <span class="st">&#39;log --graph --decorate --oneline --all&#39;</span></span></code></pre></div>
 <h1 id="basics">basics</h1>
 <h2 id="create-repositories">create repositories</h2>
-<p>These are the two ways how to create a local git repository you can work with:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># create empty repository</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">git</span> init project-name</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># create local copy of existing repository</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">git</span> clone https://github.com/user/project-name.git</a></code></pre></div>
+<p>These are the two ways how to create a local git repository you can
+work with:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create empty repository</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init project-name</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create local copy of existing repository</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/user/project-name.git</span></code></pre></div>
 <p>Then you can start editing files.</p>
 <h2 id="status">status</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># show what to do with files in working directory</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="fu">git</span> status</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show what to do with files in working directory</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div>
 <h2 id="the-staging-area">the staging area</h2>
-<p><strong>git</strong> has a so-called <strong>staging area</strong>. The staging area is used to iteratively accumulate changes for the next version.</p>
+<p><strong>git</strong> has a so-called <strong>staging area</strong>.
+The staging area is used to iteratively accumulate changes for the next
+version.</p>
 <p><img src="local-operations.svg" /></p>
-<p>There are some other commands that let you work with the files in your <strong>working directory</strong>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># discard changes to a file</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="fu">git</span> checkout file</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># rename a file</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="fu">git</span> mv source destination</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co"># remove a file</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="fu">git</span> rm file</a></code></pre></div>
+<p>There are some other commands that let you work with the files in
+your <strong>working directory</strong>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># discard changes to a file</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> restore file</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># rename a file</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> mv source destination</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># remove a file</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm file</span></code></pre></div>
 <h2 id="show-changes">show changes</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># show changes from last commit and staging area to current working copy</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">git</span> diff</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># show contents of staging area</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># (i.e. changes from last commit to staging area)</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="fu">git</span> diff --staged</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show changes from last commit and staging area to current working copy</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show contents of staging area</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (i.e. changes from last commit to staging area)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--staged</span></span></code></pre></div>
 <h2 id="commit-changes">commit changes</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># opens editor for you to edit commit message</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="fu">git</span> commit</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co"># commits with a short message</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="fu">git</span> commit --message <span class="st">&#39;short commit message&#39;</span></a></code></pre></div>
-<p>More about <strong>commit</strong> message conventions <a href="https://idiv-biodiversity.github.io/git-knowledge-base/commit-message-conventions.html">here</a>.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># opens editor for you to edit commit message</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># commits with a short message</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--message</span> <span class="st">&#39;short commit message&#39;</span></span></code></pre></div>
+<p>More about <strong>commit</strong> message conventions <a
+href="https://idiv-biodiversity.github.io/git-knowledge-base/commit-message-conventions.html">here</a>.</p>
 <h2 id="view-history">view history</h2>
-<p>Commits are named by their <a href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a> hash. They are often abbreviated for readability. A commit always points to its parent.</p>
+<p>Commits are named by their <a
+href="https://en.wikipedia.org/wiki/SHA-1">SHA-1</a> hash. They are
+often abbreviated for readability. A commit always points to its
+parent.</p>
 <p><img src="git-tree.svg" /></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># show all commits and their messages</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fu">git</span> log</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># also show the full diff like in git diff</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="fu">git</span> log --patch</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co"># shows condensed view of history, only commit message subjects</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="fu">git</span> lol</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show all commits and their messages</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># also show the full diff like in git diff</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--patch</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># shows condensed view of history, only commit message subjects</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lol</span></code></pre></div>
 <h1 id="branches-and-merging">branches and merging</h1>
 <h2 id="branches">branches</h2>
-<p>The default branch is called <strong>master</strong>. The <strong>master</strong> branch contains the current version of the project. Other branches are used e.g. to develop a feature or to resolve an issue. The goal is to do this without influencing the development in <strong>master</strong>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># show your local branches</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="fu">git</span> branch</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co"># show all branches (remotes, too)</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="fu">git</span> branch --all</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co"># create a new branch</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="fu">git</span> branch topic/feature</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co"># switch to a branch</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="fu">git</span> checkout topic/feature</a></code></pre></div>
-<p>More about branch naming conventions <a href="https://idiv-biodiversity.github.io/git-knowledge-base/branch-naming-conventions.html">here</a>.</p>
+<p>The default branch is called <strong>main</strong>. The
+<strong>main</strong> branch contains the current version of the
+project. Other branches are used e.g. to develop a feature or to resolve
+an issue. The goal is to do this without influencing the development in
+<strong>main</strong>.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show your local branches</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show all branches (remotes, too)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--all</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new branch</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch topic/feature</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># switch to a branch</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch topic/feature</span></code></pre></div>
+<p>More about branch naming conventions <a
+href="https://idiv-biodiversity.github.io/git-knowledge-base/branch-naming-conventions.html">here</a>.</p>
 <h2 id="merging">merging</h2>
-<p>To resolve a branch, i.e. to include its changes in the <strong>master</strong> branch, you need to <strong>merge</strong> it:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">git</span> checkout master</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="fu">git</span> merge topic/feature</a></code></pre></div>
+<p>To resolve a branch, i.e. to include its changes in the
+<strong>main</strong> branch, you need to <strong>merge</strong> it:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge topic/feature</span></code></pre></div>
 <p><img src="git-merge.svg" /></p>
 <p>The so-called <strong>merge commits</strong> have two parents.</p>
 <h1 id="remotes">remotes</h1>
 <p>Add and show remotes:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># show remotes</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="fu">git</span> remote --verbose</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># add remote</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="fu">git</span> remote add name url</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show remotes</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">--verbose</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add remote</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add name url</span></code></pre></div>
 <p>Fetch latest status of remotes:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># fetch only the &#39;origin&#39; remote</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">git</span> fetch origin</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co"># fetch all remotes</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="fu">git</span> fetch --all</a></code></pre></div>
-<p><strong>Hint:</strong> Use <code>git lol</code> after fetching to find out what happened!</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fetch only the &#39;origin&#39; remote</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fetch all remotes</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch <span class="at">--all</span></span></code></pre></div>
+<p><strong>Hint:</strong> Use <code>git lol</code> after fetching to
+find out what happened!</p>
 <h2 id="solo">solo</h2>
-<p>The workflow is very simple when you don’t have contributors. Your main remote, which you use for <strong>push</strong> and <strong>pull</strong> without any arguments, is called <strong>origin</strong>.</p>
+<p>The workflow is very simple when you don’t have contributors. Your
+main remote, which you use for <strong>push</strong> and
+<strong>pull</strong> without any arguments, is called
+<strong>origin</strong>.</p>
 <p><img src="git-remote-solo.svg" /></p>
 <h2 id="contributor">contributor</h2>
-<p>The remote of the original author / maintainer is called <strong>upstream</strong>. You notify the maintainer via <strong>requests</strong> using the <strong>GitHub</strong> or <strong>GitLab</strong> web interfaces, depending where the project is hosted.</p>
+<p>The remote of the original author / maintainer is called
+<strong>upstream</strong>. You notify the maintainer via
+<strong>requests</strong> using the <strong>GitHub</strong> or
+<strong>GitLab</strong> web interfaces, depending where the project is
+hosted.</p>
 <p><img src="git-remote-contributor.svg" /></p>
 <h2 id="maintainer">maintainer</h2>
 <p>The remotes of contributors are usually named by their owners.</p>
