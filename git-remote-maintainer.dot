@@ -6,7 +6,7 @@ digraph {
 
         node [color = orchid]
 
-        omaster[label = "master"]
+        omain[label = "main"]
     }
 
     subgraph clusterlocal {
@@ -14,7 +14,7 @@ digraph {
 
         node [color = orchid]
 
-        master[label = "master"]
+        main[label = "main"]
     }
 
     subgraph clusteralice {
@@ -22,7 +22,7 @@ digraph {
 
         node [color = limegreen]
 
-        amaster[label = "master"]
+        amain[label = "main"]
     }
 
     subgraph clusterbob {
@@ -30,11 +30,11 @@ digraph {
 
         node [color = lightskyblue]
 
-        bmaster[label = "master"]
+        bmain[label = "main"]
     }
 
-    omaster -> master [label = "git pull"]
-    master -> omaster [label = "git push", constraint = false]
-    amaster -> master [label = "git pull alice", constraint = false]
-    bmaster -> master [label = "git pull bob", constraint = false]
+    omain -> main [label = "git pull"]
+    main -> omain [label = "git push", constraint = false]
+    amain -> main [label = "git pull alice", constraint = false]
+    bmain -> main [label = "git pull bob", constraint = false]
 }

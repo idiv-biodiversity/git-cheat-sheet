@@ -1,8 +1,8 @@
 digraph {
     node [shape = "box", style = "filled, rounded"]
 
-    subgraph clustermaster {
-        label = "master"
+    subgraph clustermain {
+        label = "main"
 
         node [color = limegreen]
 

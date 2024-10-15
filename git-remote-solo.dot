@@ -6,7 +6,7 @@ digraph {
 
         node [color = orchid]
 
-        omaster[label = "master"]
+        omain[label = "main"]
     }
 
     subgraph clusterlocal {
@@ -14,10 +14,10 @@ digraph {
 
         node [color = orchid]
 
-        master[label = "master"]
+        main[label = "main"]
     }
 
-    omaster -> master [label = "git fetch", style = dotted]
-    master -> omaster [label = "git push"]
-    omaster -> master [label = "git pull"]
+    omain -> main [label = "git fetch", style = dotted]
+    main -> omain [label = "git push"]
+    omain -> main [label = "git pull"]
 }

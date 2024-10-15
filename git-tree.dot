@@ -1,16 +1,16 @@
 digraph {
     node [shape = "box", style = "filled, rounded"]
 
-    subgraph clustermaster {
-        label = "master"
+    subgraph clustermain {
+        label = "main"
 
         node [color = limegreen]
 
-        master3[label = "ebe0262"]
-        master2[label = "03f4f8d"]
-        master1[label = "62a0ee9"]
+        main3[label = "ebe0262"]
+        main2[label = "03f4f8d"]
+        main1[label = "62a0ee9"]
 
-        master3 -> master2 -> master1
+        main3 -> main2 -> main1
     }
 
     subgraph clusterfeature {
@@ -24,5 +24,5 @@ digraph {
         feature2 -> feature1
     }
 
-    feature1 -> master2
+    feature1 -> main2
 }
