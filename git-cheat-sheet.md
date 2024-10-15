@@ -1,10 +1,18 @@
 # git beginner cheat sheet
 
-This is an introductory **git cheat sheet** targeting **beginner-level git users**. With the commands shown here, **you will be able to start tracking the history of your projects**. There is certainly a lot more you can do with git (and a lot cleaner), but the important thing is to **get you started** and to provide a **reference for infrequent git users**. Once you are comfortable with these basic commands (and you don't need this cheat sheet to remember them), you are advised to use the **cheat sheet for advanced users** (not finished yet).
+This is an introductory **git cheat sheet** targeting **beginner-level git
+users**. With the commands shown here, **you will be able to start tracking the
+history of your projects**. There is certainly a lot more you can do with git
+(and a lot cleaner), but the important thing is to **get you started** and to
+provide a **reference for infrequent git users**. Once you are comfortable with
+these basic commands (and you don't need this cheat sheet to remember them),
+you are advised to use the **cheat sheet for advanced users** (not finished
+yet).
 
 ## command line usage
 
-The command line **git** application uses so-called **commands**. The command line syntax is always:
+The command line **git** application uses so-called **commands**. The command
+line syntax is always:
 
 ```bash
 git command [arguments]
@@ -56,11 +64,13 @@ git status
 
 ## the staging area
 
-**git** has a so-called **staging area**. The staging area is used to iteratively accumulate changes for the next version.
+**git** has a so-called **staging area**. The staging area is used to
+iteratively accumulate changes for the next version.
 
 ![](local-operations.svg)
 
-There are some other commands that let you work with the files in your **working directory**:
+There are some other commands that let you work with the files in your
+**working directory**:
 
 ```bash
 # discard changes to a file
@@ -98,7 +108,8 @@ More about **commit** message conventions [here][commit messages].
 
 ## view history
 
-Commits are named by their [SHA-1][] hash. They are often abbreviated for readability. A commit always points to its parent.
+Commits are named by their [SHA-1][] hash. They are often abbreviated for
+readability. A commit always points to its parent.
 
 ![](git-tree.svg)
 
@@ -117,7 +128,10 @@ git lol
 
 ## branches
 
-The default branch is called **master**. The **master** branch contains the current version of the project. Other branches are used e.g. to develop a feature or to resolve an issue. The goal is to do this without influencing the development in **master**.
+The default branch is called **main**. The **main** branch contains the current
+version of the project. Other branches are used e.g. to develop a feature or to
+resolve an issue. The goal is to do this without influencing the development in
+**main**.
 
 ```bash
 # show your local branches
@@ -137,10 +151,11 @@ More about branch naming conventions [here][branch naming].
 
 ## merging
 
-To resolve a branch, i.e. to include its changes in the **master** branch, you need to **merge** it:
+To resolve a branch, i.e. to include its changes in the **main** branch, you
+need to **merge** it:
 
 ```bash
-git switch master
+git switch main
 git merge topic/feature
 ```
 
@@ -174,13 +189,17 @@ git fetch --all
 
 ## solo
 
-The workflow is very simple when you don't have contributors. Your main remote, which you use for **push** and **pull** without any arguments, is called **origin**.
+The workflow is very simple when you don't have contributors. Your main remote,
+which you use for **push** and **pull** without any arguments, is called
+**origin**.
 
 ![](git-remote-solo.svg)
 
 ## contributor
 
-The remote of the original author / maintainer is called **upstream**. You notify the maintainer via **requests** using the **GitHub** or **GitLab** web interfaces, depending where the project is hosted.
+The remote of the original author / maintainer is called **upstream**. You
+notify the maintainer via **requests** using the **GitHub** or **GitLab** web
+interfaces, depending where the project is hosted.
 
 ![](git-remote-contributor.svg)
 
